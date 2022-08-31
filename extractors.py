@@ -307,7 +307,7 @@ def addCovidCasesByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.da
     #files downloaded from https://covid.cdc.gov/covid-data-tracker/#trends_dailytrendsdeaths
     #files=os.listdir('cdcCovidDeathsCleaned')
     #files=os.listdir('cdcCovidCases_May25_2022_cleaned')
-    theDir='OfficialData_downloadedJuly25_2022\\cdcCovidCases_July25_2022_orig'
+    theDir='OfficialData_downloadedJuly25_2022\\cdcCovidCases_July25_2022'
     files=os.listdir(theDir)
     #files=os.listdir('cdcCovidDeaths_Dec9_Cleaned')
     stateDct=dict()
@@ -361,7 +361,7 @@ def addCovidDeathsByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.d
     #files downloaded from https://covid.cdc.gov/covid-data-tracker/#trends_dailytrendsdeaths
     #files=os.listdir('cdcCovidDeathsCleaned')
     #files=os.listdir('cdcCovidDeaths_May12_2022_cleaned')
-    theDir='OfficialData_downloadedJuly25_2022\\cdcCovidDeaths_July25_2022_orig'
+    theDir='OfficialData_downloadedJuly25_2022\\cdcCovidDeaths_July25_2022'
     files=os.listdir(theDir)
     #files=os.listdir('cdcCovidDeaths_Dec9_Cleaned')
     stateDct=dict()
