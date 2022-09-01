@@ -13,11 +13,17 @@ Three Jupyter notebooks are included. The notebooks are written in Python3, with
 The data sources used are as follows:
 
 a) Excess death data. Source: https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm
+
 b) Covid case and death data.  Source: https://covid.cdc.gov/covid-data-tracker/#trends_dailycases_select_00
+
 c) Covid vaccination data. Source: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc
+
 d) Social distancing government policy data. Source: https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker 
+
 e) Social distancing behavior (mobility) data. Source: https://www.google.com/covid19/mobility/ 
+
 f) Mask mandate data. Source: https://statepolicies.com/data/library/
+
 g) Humidity and temperature data. Source: weatherapi.com 
 
 3) StatisticalAnalysis.ipynb studies the lagged association of relative humidity with excess and covid death rates 2 months later, using the data in panelDataFrame.csv and using data from the various other sources as controls. The panelDataFrame.csv file (or a modified version thereof) might potentially be used in the future for other studies which focus on other covid-related variables rather than relative humidity, though. 
