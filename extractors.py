@@ -90,8 +90,8 @@ def recreateStringency(minDateInt=20200301,maxDateInt=20220301,oxf=pd.DataFrame(
     
 def getStringencyByMonth(startYearAndMonth,endYearAndMonth,day=1,metric='StringencyIndex'):
     #oxf=pd.read_csv('https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv') 
-    print('stringency new way')
-    oxf=pd.read_csv('C:\\Users\\joe_s\\OneDrive\\CovidGiniPaper\\OfficialData_downloadedJuly25_2022\\OxCGRT_latest.csv')
+    #print('stringency new way')
+    oxf=pd.read_csv('OfficialData_downloadedJuly25_2022\\OxCGRT_latest.csv')
     startYear,startMonth=startYearAndMonth
     endYear,endMonth=endYearAndMonth
     def getInt(year,month):
@@ -112,7 +112,6 @@ def getStringencyByMonth(startYearAndMonth,endYearAndMonth,day=1,metric='Stringe
     currInt=startInt
     stateDct=dict()
     while (nextInt <= endInt):
-        print((currYear,currMonth))
         stateDct[(currYear,currMonth)]=recreateStringency(currInt,nextInt,oxf=oxf,metric=metric)
         currInt=nextInt
         currYear=nextYear
@@ -123,9 +122,8 @@ def getStringencyByMonth(startYearAndMonth,endYearAndMonth,day=1,metric='Stringe
 
 
 def getRaifmanDataByMonth(startEndFieldPairs,startYearAndMonth,endYearAndMonth):
-    print('Raifman new way')
     
-    df=pd.read_csv('C:\\Users\\joe_s\\OneDrive\\CovidGiniPaper\\OfficialData_downloadedJuly25_2022\\COVID-19 US state policy database 3_30_2022.csv')
+    df=pd.read_csv('OfficialData_downloadedJuly25_2022\\COVID-19 US state policy database 3_30_2022.csv')
     
     #    RaifmanStatePolicy.csv')
     valStart=4
@@ -210,8 +208,8 @@ def getMobilityByMonth(startYearAndMonth,endYearAndMonth,day=1,fields=['retail_a
                                                                        'parks',
                                                                        'transit_stations',
                                                                        'workplaces']):
-    print('mobility new way')
-    baseDir="C:\\Users\\joe_s\\OneDrive\\CovidGiniPaper\\OfficialData_downloadedJuly25_2022\\GoogleMobilityData"
+   
+    baseDir="OfficialData_downloadedJuly25_2022\\GoogleMobilityData"
     
     df2020=pd.read_csv(baseDir + "\\Region_Mobility_Report_CSVs\\2020_US_Region_Mobility_Report.csv")
     df2021=pd.read_csv(baseDir + "\\Region_Mobility_Report_CSVs\\2021_US_Region_Mobility_Report.csv")
@@ -255,7 +253,7 @@ def getMobilityByMonth(startYearAndMonth,endYearAndMonth,day=1,fields=['retail_a
     return dctByMonth
 
 def getVaxRateByMonth(startYearAndMonth,endYearAndMonth,day=1,boosted=False):
-    vaxDF=pd.read_csv('C:\\Users\\joe_s\\OneDrive\\CovidGiniPaper\\OfficialData_downloadedJuly25_2022\\COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
+    vaxDF=pd.read_csv('OfficialData_downloadedJuly25_2022\\COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
     addDateObjAlt(vaxDF)
     month=startYearAndMonth
     if (month.month==12):
@@ -315,7 +313,7 @@ def addCovidCasesByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.da
     
     
     for fle in files:
-        print(fle)
+        #print(fle)
         #df=addDateObj(pd.read_csv('cdcCovidCases_May25_2022_cleaned/' + fle))
         df=addDateObj(pd.read_csv(StringIO(readCDC_CSV(theDir + '\\' + fle))))
         #state=fle.replace('data_table_for_daily_case_trends__','').replace('_',' ')
@@ -327,7 +325,7 @@ def addCovidCasesByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.da
         state=state.replace('_',' ').strip()
         #state=fle.split('__')[0].strip().replace('_',' ')
         capitalized=[]
-        print(state)
+        #print(state)
         for word in state.split(' '):
             if (word != 'of'):
                 capitalized.append(word[0].upper() + word[1:])
@@ -366,7 +364,7 @@ def addCovidDeathsByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.d
     #files=os.listdir('cdcCovidDeaths_Dec9_Cleaned')
     stateDct=dict()
     for fle in files:
-        print(fle)
+        #print(fle)
         df1=pd.read_csv(StringIO(readCDC_CSV(theDir + '/' + fle)))
         #print('cols',df1.columns)
         df=addDateObj(pd.read_csv(StringIO(readCDC_CSV(theDir + '/' + fle))))
@@ -378,7 +376,7 @@ def addCovidDeathsByMonth(startMonth=datetime.date(2020,3,1),endMonth=datetime.d
         #state=fle.split('__')[0].strip().replace('_',' ')
         capitalized=[]
         for word in state.split(' '):
-            print('STATE:',state)
+            #print('STATE:',state)
             if (word != 'of'):
                 capitalized.append(word[0].upper() + word[1:])
             else:
@@ -427,7 +425,7 @@ def specificStringencyMeasures(minDateInt=20210601,maxDateInt=20220301):
 
         
 def getExcessPctByMonth(sloppyWay=False,typ='Predicted (weighted)',metric='ExcessPct',negativesAllowed=False):
-    df=pd.read_csv('C:\\Users\joe_s\\OneDrive\\CovidGiniPaper\\OfficialData_downloadedJuly25_2022\\Excess_Deaths_Associated_with_COVID-19.csv')
+    df=pd.read_csv('OfficialData_downloadedJuly25_2022\\Excess_Deaths_Associated_with_COVID-19.csv')
     df=df[df['Type']==typ]
     df=df[df['Outcome']=='All causes']
     
@@ -471,7 +469,7 @@ def getExcessPctByMonth(sloppyWay=False,typ='Predicted (weighted)',metric='Exces
     for month in list(set(df['MonthStartObj'].values)):
         if (month > datetime.date(2022,4,1)):
             continue
-        print('month',str(month))
+        #print('month',str(month))
         totalWeight=dict()
         totalWeightedSum=dict()
         totalSum=dict()
@@ -538,7 +536,6 @@ def addWeekEndDateObj(exDF):
     exDF['WeekEndingObj']=exDF['Week Ending Date'].apply(dateStrExcessToDate)
                    
 def dateStrExcessToDateAlt(dStr):
-    print(dStr)
     splts=dStr.strip().split('/')
     return datetime.date(int(splts[2]),int(splts[0]),int(splts[1]))
 
