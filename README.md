@@ -26,4 +26,6 @@ f) Mask mandate data. Source: https://statepolicies.com/data/library/
 
 g) Humidity and temperature data. Source: weatherapi.com 
 
-3) StatisticalAnalysis.ipynb studies the lagged association of relative humidity with excess and covid death rates 2 months later, using the data in panelDataFrame.csv and using data from the various other sources as controls. The panelDataFrame.csv file (or a modified version thereof) might potentially be used in the future for other studies which focus on other covid-related variables rather than relative humidity, though. 
+3) StatisticalAnalysis.ipynb studies the lagged association of relative humidity with excess and covid death rates 2 months later, using the data in panelDataFrame.csv and using data from the various other sources as controls. The panelDataFrame.csv file (or a modified version thereof) might potentially be used in the future for other studies which focus on other covid-related variables rather than relative humidity, though.
+
+LaggedAssociationRelHumidityWithExcessMortality is a working paper which examines the association of low relative humidity with higher all-cause excess mortality rates 2 months later, using a 2-way fixed effects methodology and including various controls derived from the various data sources described above.
